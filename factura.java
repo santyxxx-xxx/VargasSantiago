@@ -44,7 +44,6 @@ public class factura extends JFrame{
                 textField1.setText(String.valueOf(subtotal));
                 textField2.setText(String.valueOf(iva));
                 textField3.setText(String.valueOf(total));
-                resumen.setText("Codigo"+codigo+"\n Producto"+producto+"\n Precio total"+total+"\n Gracias por comprar");
 
 
 
