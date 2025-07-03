@@ -56,7 +56,7 @@
           <text value="STOCK"/>
         </properties>
       </component>
-      <component id="2c1b0" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="2c1b0" class="javax.swing.JTextField" binding="txtCodigo">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="6e168" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="6e168" class="javax.swing.JTextField" binding="txtNombre">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -72,7 +72,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="3beed" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="3beed" class="javax.swing.JTextField" binding="txtDetalle">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -80,7 +80,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="b5e" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="b5e" class="javax.swing.JTextField" binding="txtPrecio">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -88,7 +88,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="bd02c" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="bd02c" class="javax.swing.JTextField" binding="txtStock">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -132,6 +132,14 @@
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
+      <component id="60daf" class="javax.swing.JButton" binding="LIMPIARButton" default-binding="true">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="LIMPIAR"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

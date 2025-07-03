@@ -21,7 +21,7 @@ public class login extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String usuario= textField1.getText();
                 String clave= new String (passwordField1.getPassword());
-                if (usuario.equals("cliente123") && clave.equals("clave456")) {
+                if (usuario.equals("1") && clave.equals("1")) {
                     new menu();
                     dispose();
                 } else {
