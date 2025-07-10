@@ -9,12 +9,8 @@ public class mostrar extends JFrame{
     private JLabel nom;
     private JLabel st;
     private JLabel det;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private String codigo,nombre, detalle;
-    private int stock;
+    private JTextField codigotxt;
+    private JButton buscar;
 
     public mostrar() {
         setTitle("INFORMACION");
@@ -33,11 +29,34 @@ public class mostrar extends JFrame{
 
             }
         });
+        buscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String codigoIngresado = codigotxt.getText().trim();
+                if (codigoIngresado.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Ingrese un código de producto.");
+                    return;
+                }
+
+                Producto p = BaseDatos.buscarProducto(codigoIngresado);
+                if (p != null) {
+                    setDatos(p.getCodigo(), p.getNombre(), p.getDetalle(), p.getStock());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Producto no encontrado.");
+                    cod.setText("Código: ---");
+                    nom.setText("Nombre: ---");
+                    det.setText("Detalle: ---");
+                    st.setText("Stock: ---");
+                }
+            }
+        });
     }
-    public void setDatos(String nombre, String codigo, String detalle, int stock) {
-        cod.setText(codigo);
-        nom.setText(nombre);
-        det.setText(detalle);
-        st.setText(String.valueOf(stock));
+    public void setDatos(String codigo, String nombre, String detalle, int stock) {
+        cod.setText("Código: " + codigo);
+        nom.setText("Nombre: " + nombre);
+        det.setText("Detalle: " + detalle);
+        st.setText("Stock: " + stock);
     }
+
+
 }

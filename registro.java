@@ -25,13 +25,28 @@ public class registro extends JFrame{
         GUARDARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String codigo= txtCodigo.getText();
-                String detalle=txtDetalle.getText();
-                String nombre=txtNombre.getText();
-                int stock= Integer.parseInt(txtStock.getText());
-                mostrar m1= new mostrar();
-                m1.setDatos(nombre,detalle,codigo,stock);
-                m1.setVisible(true);
+                if (txtCodigo.getText().isEmpty() || txtNombre.getText().isEmpty() ||
+                        txtDetalle.getText().isEmpty() || txtPrecio.getText().isEmpty() ||
+                        txtStock.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
+                    return;
+                }
+
+                String codigo = txtCodigo.getText();
+                String nombre = txtNombre.getText();
+                String detalle = txtDetalle.getText();
+                double precio = Double.parseDouble(txtPrecio.getText());
+                int stock = Integer.parseInt(txtStock.getText());
+
+                Producto nuevo = new Producto(codigo, nombre, detalle, stock, precio);
+                BaseDatos.productos.add(nuevo);
+
+                // 1. Mostrar mensaje primero
+                JOptionPane.showMessageDialog(null, "Producto registrado exitosamente.");
+
+
+
+
             }
         });
         VOLVERButton.addActionListener(new ActionListener() {

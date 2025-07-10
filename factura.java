@@ -31,21 +31,49 @@ public class factura extends JFrame{
         setVisible(true);
         setLocationRelativeTo(null);
 
+        String codigo = txtCodigo.getText();
+        Producto p = BaseDatos.buscarProducto(codigo);
+
+        if (p != null) {
+            txtProducto.setText(p.getNombre());
+            txtPrecio.setText(String.valueOf(p.getPrecio()));
+            // Y luego puedes calcular la factura
+        } else {
+            JOptionPane.showMessageDialog(null, "Producto no encontrado.");
+        }
+
         CALCULARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String codigo=txtCodigo.getText();
-                String producto=txtProducto.getText();
-                Double precio=Double.parseDouble(txtPrecio.getText());
-                int cantidad= Integer.parseInt(txtCantidad.getText());
-                subtotal=cantidad*precio;
-                iva=subtotal*0.15;
-                total=subtotal+iva;
+                String codigo = txtCodigo.getText();
+                Producto p = BaseDatos.buscarProducto(codigo);
+
+                if (p == null) {
+                    JOptionPane.showMessageDialog(null, "Producto no encontrado.");
+                    return;
+                }
+
+// Cargar nombre y precio automáticamente
+                txtProducto.setText(p.getNombre());
+                txtPrecio.setText(String.valueOf(p.getPrecio()));
+
+                int cantidad = Integer.parseInt(txtCantidad.getText());
+
+                if (cantidad > p.getStock()) {
+                    JOptionPane.showMessageDialog(null, "Stock insuficiente.");
+                    return;
+                }
+
+                subtotal = cantidad * p.getPrecio();
+                iva = subtotal * 0.15;
+                total = subtotal + iva;
+
+// Descontar stock
+                p.setStock(p.getStock() - cantidad);
+
                 textField1.setText(String.valueOf(subtotal));
                 textField2.setText(String.valueOf(iva));
-                textField3.setText(String.valueOf(total));
-
-
+                textField3.setText("<html><b><font size='+1'>" + total + "</font></b></html>");
 
             }
         });

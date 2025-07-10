@@ -27,6 +27,11 @@ public class login extends JFrame{
                 } else {
                     JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                if (usuario.isEmpty() || clave.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos.");
+                    return;
+                }
+
 
             }
         });
